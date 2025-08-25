@@ -1,0 +1,77 @@
+{
+  "expo": {
+    "name": "Life Legacy AI",
+    "slug": "life-legacy-ai",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "main": "./App.js",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSMicrophoneUsageDescription": "We use the microphone to record your memories.",
+        "NSCameraUsageDescription": "We use the camera to attach photos and videos to your chapters.",
+        "NSPhotoLibraryAddUsageDescription": "We save exported media to your library.",
+        "UIBackgroundModes": [
+          "audio",
+          "audio"
+        ]
+      },
+      "bundleIdentifier": "com.anonymous.life-legacy-ai"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "permissions": [
+        "RECORD_AUDIO",
+        "READ_MEDIA_IMAGES",
+        "READ_MEDIA_VIDEO",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-notifications",
+      "expo-font",
+      "expo-secure-store",
+      "expo-audio"
+    ],
+    "extra": {
+      "API_BASE_URL": "https://api.lifelegacy.ai",
+      "SUPABASE_URL": "",
+      "SUPABASE_ANON_KEY": "",
+      "FEATURE_EXPORT_EPUB": true,
+      "FEATURE_EXPORT_DOC": true,
+      "FEATURE_EXPORT_PDF": true,
+      "FEATURE_MEDIA_UPLOAD": true,
+      "FEATURE_STYLES": true,
+      "FEATURE_AI_ENHANCEMENT": true,
+      "FEATURE_OFFLINE_MODE": true,
+      "ENVIRONMENT": "development",
+      "BUILD_NUMBER": "1",
+      "ANALYTICS_ENABLED": false,
+      "MIXPANEL_TOKEN": "",
+      "SENTRY_DSN": "",
+      "ENABLE_DEBUG_PANEL": true,
+      "MOCK_SERVICES": true,
+      "LOG_LEVEL": "debug",
+      "eas": {
+        "projectId": "bf363c47-91e3-4e25-a8c8-a0836845f445"
+      }
+    }
+  }
+}

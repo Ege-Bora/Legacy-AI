@@ -1,0 +1,123 @@
+{
+  "appName": "Life Legacy AI",
+  "tagline": "حوّل ذكرياتك إلى قصة حياة جميلة.",
+  "auth": {
+    "continueGoogle": "المتابعة مع جوجل",
+    "continueApple": "المتابعة مع آبل",
+    "signOut": "تسجيل الخروج"
+  },
+  "home": {
+    "welcome": "مرحباً بعودتك، {{name}}",
+    "quickActions": "الإجراءات السريعة",
+    "startInterview": "بدء المقابلة",
+    "quickMemory": "ذكرى سريعة",
+    "viewTimeline": "عرض الجدول الزمني",
+    "exportBook": "تصدير الكتاب",
+    "recentActivity": "النشاط الأخير",
+    "noRecentActivity": "لا يوجد نشاط حديث",
+    "getStarted": "ابدأ بإنشاء ذكرتك الأولى"
+  },
+  "onboarding": {
+    "title": "مرحباً بك في Life Legacy AI",
+    "subtitle": "حوّل ذكرياتك إلى قصة حياة جميلة",
+    "recordVoice": "سجل الذكريات الصوتية",
+    "aiChapters": "فصول مُنتجة بالذكاء الاصطناعي",
+    "exportBeautiful": "صدّر كتب جميلة",
+    "getStarted": "البدء"
+  },
+  "timeline": {
+    "title": "الجدول الزمني",
+    "noMemories": "لا توجد ذكريات بعد",
+    "startRecording": "ابدأ بتسجيل ذكرتك الأولى",
+    "pullToRefresh": "اسحب للتحديث",
+    "memoriesCount": "{{count}} ذكريات",
+    "chaptersGenerated": "تم إنشاء {{count}} فصول",
+    "wordsWritten": "تم كتابة {{count}} كلمة"
+  },
+  "book": {
+    "title": "كتابك",
+    "progress": "التقدم",
+    "exportOptions": "خيارات التصدير",
+    "preview": "معاينة",
+    "generateBook": "إنشاء الكتاب",
+    "tips": "نصائح",
+    "completion": "{{percent}}% مكتمل",
+    "chapters": "{{count}} فصول",
+    "words": "{{count}} كلمات",
+    "exportPDF": "تصدير كـ PDF",
+    "exportEPUB": "تصدير كـ EPUB",
+    "shareLink": "مشاركة الرابط"
+  },
+  "quickCapture": {
+    "title": "التقاط سريع",
+    "voiceMode": "صوت",
+    "textMode": "نص",
+    "recording": "جاري التسجيل...",
+    "tapToRecord": "اضغط للتسجيل",
+    "tapToStop": "اضغط للتوقف",
+    "writeMemory": "اكتب ذكرتك...",
+    "saveMemory": "حفظ الذكرى",
+    "tips": "نصائح",
+    "tipVoice": "تحدث بطبيعية عن ذكرتك",
+    "tipDetails": "أضف تفاصيل مثل متى وأين ومن كان هناك",
+    "tipEmotions": "لا تنس ذكر كيف شعرت"
+  },
+  "editor": {
+    "title": "تحرير الذكرى",
+    "memoryTitle": "عنوان الذكرى",
+    "content": "المحتوى",
+    "writeStory": "اكتب قصتك...",
+    "formatting": "التنسيق",
+    "media": "الوسائط",
+    "details": "التفاصيل",
+    "created": "تم الإنشاء:",
+    "type": "النوع:",
+    "wordCount": "عدد الكلمات:",
+    "words": "كلمات",
+    "unsavedChanges": "لديك تغييرات غير محفوظة",
+    "saveChanges": "حفظ التغييرات",
+    "saving": "جاري الحفظ...",
+    "regenerateWithAI": "إعادة الإنشاء بالذكاء الاصطناعي",
+    "regenerating": "جاري إعادة الإنشاء..."
+  },
+  "settings": {
+    "title": "الإعدادات",
+    "language": "اللغة",
+    "systemDefault": "افتراضي النظام",
+    "account": "الحساب",
+    "subscription": "الاشتراك",
+    "privacy": "الخصوصية والبيانات",
+    "support": "الدعم",
+    "about": "حول",
+    "privacyPolicy": "سياسة الخصوصية",
+    "terms": "شروط الخدمة",
+    "downloadData": "تحميل بياناتي",
+    "deleteAccount": "حذف حسابي",
+    "version": "الإصدار {{version}}",
+    "languageUpdated": "تم تحديث اللغة"
+  },
+  "common": {
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "loading": "جاري التحميل…",
+    "error": "خطأ",
+    "retry": "إعادة المحاولة",
+    "done": "تم",
+    "edit": "تحرير",
+    "delete": "حذف",
+    "share": "مشاركة",
+    "back": "رجوع",
+    "next": "التالي",
+    "previous": "السابق",
+    "close": "إغلاق",
+    "ok": "موافق",
+    "yes": "نعم",
+    "no": "لا"
+  },
+  "errors": {
+    "generic": "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
+    "network": "خطأ في الشبكة. تحقق من اتصالك.",
+    "notFound": "المحتوى غير موجود.",
+    "unauthorized": "يرجى تسجيل الدخول للمتابعة."
+  }
+}

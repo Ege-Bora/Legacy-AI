@@ -1,0 +1,123 @@
+{
+  "appName": "Life Legacy AI",
+  "tagline": "Trasforma i tuoi ricordi in una bella storia di vita.",
+  "auth": {
+    "continueGoogle": "Continua con Google",
+    "continueApple": "Continua con Apple",
+    "signOut": "Disconnetti"
+  },
+  "home": {
+    "welcome": "Bentornato, {{name}}",
+    "quickActions": "Azioni Rapide",
+    "startInterview": "Inizia Intervista",
+    "quickMemory": "Ricordo Veloce",
+    "viewTimeline": "Visualizza Timeline",
+    "exportBook": "Esporta Libro",
+    "recentActivity": "Attività Recente",
+    "noRecentActivity": "Nessuna attività recente",
+    "getStarted": "Inizia creando il tuo primo ricordo"
+  },
+  "onboarding": {
+    "title": "Benvenuto in Life Legacy AI",
+    "subtitle": "Trasforma i tuoi ricordi in una bella storia di vita",
+    "recordVoice": "Registra ricordi vocali",
+    "aiChapters": "Capitoli generati dall'IA",
+    "exportBeautiful": "Esporta come bei libri",
+    "getStarted": "Inizia"
+  },
+  "timeline": {
+    "title": "Timeline",
+    "noMemories": "Nessun ricordo ancora",
+    "startRecording": "Inizia registrando il tuo primo ricordo",
+    "pullToRefresh": "Trascina per aggiornare",
+    "memoriesCount": "{{count}} ricordi",
+    "chaptersGenerated": "{{count}} capitoli generati",
+    "wordsWritten": "{{count}} parole scritte"
+  },
+  "book": {
+    "title": "Il Tuo Libro",
+    "progress": "Progresso",
+    "exportOptions": "Opzioni di Esportazione",
+    "preview": "Anteprima",
+    "generateBook": "Genera Libro",
+    "tips": "Suggerimenti",
+    "completion": "{{percent}}% completato",
+    "chapters": "{{count}} capitoli",
+    "words": "{{count}} parole",
+    "exportPDF": "Esporta come PDF",
+    "exportEPUB": "Esporta come EPUB",
+    "shareLink": "Condividi Link"
+  },
+  "quickCapture": {
+    "title": "Cattura Rapida",
+    "voiceMode": "Voce",
+    "textMode": "Testo",
+    "recording": "Registrando...",
+    "tapToRecord": "Tocca per registrare",
+    "tapToStop": "Tocca per fermare",
+    "writeMemory": "Scrivi il tuo ricordo...",
+    "saveMemory": "Salva Ricordo",
+    "tips": "Suggerimenti",
+    "tipVoice": "Parla naturalmente del tuo ricordo",
+    "tipDetails": "Includi dettagli come quando, dove e chi c'era",
+    "tipEmotions": "Non dimenticare di menzionare come ti sei sentito"
+  },
+  "editor": {
+    "title": "Modifica Ricordo",
+    "memoryTitle": "Titolo del Ricordo",
+    "content": "Contenuto",
+    "writeStory": "Scrivi la tua storia...",
+    "formatting": "Formattazione",
+    "media": "Media",
+    "details": "Dettagli",
+    "created": "Creato:",
+    "type": "Tipo:",
+    "wordCount": "Conteggio Parole:",
+    "words": "parole",
+    "unsavedChanges": "Hai modifiche non salvate",
+    "saveChanges": "Salva Modifiche",
+    "saving": "Salvando...",
+    "regenerateWithAI": "Rigenera con IA",
+    "regenerating": "Rigenerando..."
+  },
+  "settings": {
+    "title": "Impostazioni",
+    "language": "Lingua",
+    "systemDefault": "Predefinito del sistema",
+    "account": "Account",
+    "subscription": "Abbonamento",
+    "privacy": "Privacy e Dati",
+    "support": "Supporto",
+    "about": "Informazioni",
+    "privacyPolicy": "Informativa sulla Privacy",
+    "terms": "Termini di Servizio",
+    "downloadData": "Scarica i miei dati",
+    "deleteAccount": "Elimina il mio account",
+    "version": "Versione {{version}}",
+    "languageUpdated": "Lingua aggiornata"
+  },
+  "common": {
+    "save": "Salva",
+    "cancel": "Annulla",
+    "loading": "Caricamento…",
+    "error": "Errore",
+    "retry": "Riprova",
+    "done": "Fatto",
+    "edit": "Modifica",
+    "delete": "Elimina",
+    "share": "Condividi",
+    "back": "Indietro",
+    "next": "Avanti",
+    "previous": "Precedente",
+    "close": "Chiudi",
+    "ok": "OK",
+    "yes": "Sì",
+    "no": "No"
+  },
+  "errors": {
+    "generic": "Qualcosa è andato storto. Riprova.",
+    "network": "Errore di rete. Controlla la tua connessione.",
+    "notFound": "Contenuto non trovato.",
+    "unauthorized": "Accedi per continuare."
+  }
+}

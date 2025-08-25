@@ -1,0 +1,123 @@
+{
+  "appName": "Life Legacy AI",
+  "tagline": "Anılarınızı güzel bir hayat hikâyesine dönüştürün.",
+  "auth": {
+    "continueGoogle": "Google ile devam et",
+    "continueApple": "Apple ile devam et",
+    "signOut": "Çıkış yap"
+  },
+  "home": {
+    "welcome": "Tekrar hoş geldin, {{name}}",
+    "quickActions": "Hızlı İşlemler",
+    "startInterview": "Röportaj Başlat",
+    "quickMemory": "Hızlı Anı",
+    "viewTimeline": "Zaman Çizelgesi",
+    "exportBook": "Kitabı Dışa Aktar",
+    "recentActivity": "Son Aktiviteler",
+    "noRecentActivity": "Son aktivite yok",
+    "getStarted": "İlk anınızı oluşturarak başlayın"
+  },
+  "onboarding": {
+    "title": "Life Legacy AI'ya Hoş Geldiniz",
+    "subtitle": "Anılarınızı güzel bir hayat hikâyesine dönüştürün",
+    "recordVoice": "Sesli anılar kaydedin",
+    "aiChapters": "Yapay zekâ ile bölümler",
+    "exportBeautiful": "Güzel kitaplar olarak dışa aktarın",
+    "getStarted": "Başlayın"
+  },
+  "timeline": {
+    "title": "Zaman Çizelgesi",
+    "noMemories": "Henüz anı yok",
+    "startRecording": "İlk anınızı kaydetmeye başlayın",
+    "pullToRefresh": "Yenilemek için çekin",
+    "memoriesCount": "{{count}} anı",
+    "chaptersGenerated": "{{count}} bölüm oluşturuldu",
+    "wordsWritten": "{{count}} kelime yazıldı"
+  },
+  "book": {
+    "title": "Kitabınız",
+    "progress": "İlerleme",
+    "exportOptions": "Dışa Aktarma Seçenekleri",
+    "preview": "Önizleme",
+    "generateBook": "Kitap Oluştur",
+    "tips": "İpuçları",
+    "completion": "%{{percent}} tamamlandı",
+    "chapters": "{{count}} bölüm",
+    "words": "{{count}} kelime",
+    "exportPDF": "PDF olarak dışa aktar",
+    "exportEPUB": "EPUB olarak dışa aktar",
+    "shareLink": "Bağlantı Paylaş"
+  },
+  "quickCapture": {
+    "title": "Hızlı Kayıt",
+    "voiceMode": "Ses",
+    "textMode": "Metin",
+    "recording": "Kaydediliyor...",
+    "tapToRecord": "Kaydetmek için dokunun",
+    "tapToStop": "Durdurmak için dokunun",
+    "writeMemory": "Anınızı yazın...",
+    "saveMemory": "Anıyı Kaydet",
+    "tips": "İpuçları",
+    "tipVoice": "Anınız hakkında doğal bir şekilde konuşun",
+    "tipDetails": "Ne zaman, nerede ve kimlerle olduğu gibi detayları ekleyin",
+    "tipEmotions": "Nasıl hissettiğinizi belirtmeyi unutmayın"
+  },
+  "editor": {
+    "title": "Anıyı Düzenle",
+    "memoryTitle": "Anı Başlığı",
+    "content": "İçerik",
+    "writeStory": "Hikâyenizi yazın...",
+    "formatting": "Biçimlendirme",
+    "media": "Medya",
+    "details": "Detaylar",
+    "created": "Oluşturulma:",
+    "type": "Tür:",
+    "wordCount": "Kelime Sayısı:",
+    "words": "kelime",
+    "unsavedChanges": "Kaydedilmemiş değişiklikleriniz var",
+    "saveChanges": "Değişiklikleri Kaydet",
+    "saving": "Kaydediliyor...",
+    "regenerateWithAI": "Yapay Zekâ ile Yeniden Oluştur",
+    "regenerating": "Yeniden oluşturuluyor..."
+  },
+  "settings": {
+    "title": "Ayarlar",
+    "language": "Dil",
+    "systemDefault": "Sistem varsayılanı",
+    "account": "Hesap",
+    "subscription": "Abonelik",
+    "privacy": "Gizlilik ve Veri",
+    "support": "Destek",
+    "about": "Hakkında",
+    "privacyPolicy": "Gizlilik Politikası",
+    "terms": "Kullanım Koşulları",
+    "downloadData": "Verilerimi indir",
+    "deleteAccount": "Hesabımı sil",
+    "version": "Sürüm {{version}}",
+    "languageUpdated": "Dil güncellendi"
+  },
+  "common": {
+    "save": "Kaydet",
+    "cancel": "Vazgeç",
+    "loading": "Yükleniyor…",
+    "error": "Hata",
+    "retry": "Tekrar Dene",
+    "done": "Tamam",
+    "edit": "Düzenle",
+    "delete": "Sil",
+    "share": "Paylaş",
+    "back": "Geri",
+    "next": "İleri",
+    "previous": "Önceki",
+    "close": "Kapat",
+    "ok": "Tamam",
+    "yes": "Evet",
+    "no": "Hayır"
+  },
+  "errors": {
+    "generic": "Bir şeyler yanlış gitti. Lütfen tekrar deneyin.",
+    "network": "Ağ hatası. Bağlantınızı kontrol edin.",
+    "notFound": "İçerik bulunamadı.",
+    "unauthorized": "Devam etmek için lütfen oturum açın."
+  }
+}

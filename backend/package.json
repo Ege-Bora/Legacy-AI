@@ -1,0 +1,21 @@
+{
+  "name": "@life/backend-root",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:api": "pnpm -C apps/api dev",
+    "dev:worker": "pnpm -C apps/worker dev",
+    "build": "pnpm -r build",
+    "start:api": "pnpm -C apps/api start",
+    "start:worker": "pnpm -C apps/worker start"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "tsx": "^4.6.0",
+    "typescript": "^5.3.2"
+  }
+}

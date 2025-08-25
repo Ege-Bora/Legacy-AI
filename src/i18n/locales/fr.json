@@ -1,0 +1,123 @@
+{
+  "appName": "Life Legacy AI",
+  "tagline": "Transformez vos souvenirs en une belle histoire de vie.",
+  "auth": {
+    "continueGoogle": "Continuer avec Google",
+    "continueApple": "Continuer avec Apple",
+    "signOut": "Se déconnecter"
+  },
+  "home": {
+    "welcome": "Bon retour, {{name}}",
+    "quickActions": "Actions Rapides",
+    "startInterview": "Commencer l'Entretien",
+    "quickMemory": "Souvenir Rapide",
+    "viewTimeline": "Voir la Chronologie",
+    "exportBook": "Exporter le Livre",
+    "recentActivity": "Activité Récente",
+    "noRecentActivity": "Aucune activité récente",
+    "getStarted": "Commencez en créant votre premier souvenir"
+  },
+  "onboarding": {
+    "title": "Bienvenue sur Life Legacy AI",
+    "subtitle": "Transformez vos souvenirs en une belle histoire de vie",
+    "recordVoice": "Enregistrez des souvenirs vocaux",
+    "aiChapters": "Chapitres générés par IA",
+    "exportBeautiful": "Exportez sous forme de beaux livres",
+    "getStarted": "Commencer"
+  },
+  "timeline": {
+    "title": "Chronologie",
+    "noMemories": "Aucun souvenir pour le moment",
+    "startRecording": "Commencez à enregistrer votre premier souvenir",
+    "pullToRefresh": "Tirez pour actualiser",
+    "memoriesCount": "{{count}} souvenirs",
+    "chaptersGenerated": "{{count}} chapitres générés",
+    "wordsWritten": "{{count}} mots écrits"
+  },
+  "book": {
+    "title": "Votre Livre",
+    "progress": "Progrès",
+    "exportOptions": "Options d'Exportation",
+    "preview": "Aperçu",
+    "generateBook": "Générer le Livre",
+    "tips": "Conseils",
+    "completion": "{{percent}}% terminé",
+    "chapters": "{{count}} chapitres",
+    "words": "{{count}} mots",
+    "exportPDF": "Exporter en PDF",
+    "exportEPUB": "Exporter en EPUB",
+    "shareLink": "Partager le Lien"
+  },
+  "quickCapture": {
+    "title": "Capture Rapide",
+    "voiceMode": "Voix",
+    "textMode": "Texte",
+    "recording": "Enregistrement...",
+    "tapToRecord": "Appuyez pour enregistrer",
+    "tapToStop": "Appuyez pour arrêter",
+    "writeMemory": "Écrivez votre souvenir...",
+    "saveMemory": "Sauvegarder le Souvenir",
+    "tips": "Conseils",
+    "tipVoice": "Parlez naturellement de votre souvenir",
+    "tipDetails": "Incluez des détails comme quand, où et qui était là",
+    "tipEmotions": "N'oubliez pas de mentionner ce que vous avez ressenti"
+  },
+  "editor": {
+    "title": "Modifier le Souvenir",
+    "memoryTitle": "Titre du Souvenir",
+    "content": "Contenu",
+    "writeStory": "Écrivez votre histoire...",
+    "formatting": "Formatage",
+    "media": "Médias",
+    "details": "Détails",
+    "created": "Créé :",
+    "type": "Type :",
+    "wordCount": "Nombre de Mots :",
+    "words": "mots",
+    "unsavedChanges": "Vous avez des modifications non sauvegardées",
+    "saveChanges": "Sauvegarder les Modifications",
+    "saving": "Sauvegarde...",
+    "regenerateWithAI": "Régénérer avec l'IA",
+    "regenerating": "Régénération..."
+  },
+  "settings": {
+    "title": "Paramètres",
+    "language": "Langue",
+    "systemDefault": "Par défaut du système",
+    "account": "Compte",
+    "subscription": "Abonnement",
+    "privacy": "Confidentialité et Données",
+    "support": "Support",
+    "about": "À propos",
+    "privacyPolicy": "Politique de Confidentialité",
+    "terms": "Conditions de Service",
+    "downloadData": "Télécharger mes données",
+    "deleteAccount": "Supprimer mon compte",
+    "version": "Version {{version}}",
+    "languageUpdated": "Langue mise à jour"
+  },
+  "common": {
+    "save": "Sauvegarder",
+    "cancel": "Annuler",
+    "loading": "Chargement…",
+    "error": "Erreur",
+    "retry": "Réessayer",
+    "done": "Terminé",
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "share": "Partager",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "close": "Fermer",
+    "ok": "OK",
+    "yes": "Oui",
+    "no": "Non"
+  },
+  "errors": {
+    "generic": "Quelque chose s'est mal passé. Veuillez réessayer.",
+    "network": "Erreur réseau. Vérifiez votre connexion.",
+    "notFound": "Contenu introuvable.",
+    "unauthorized": "Veuillez vous connecter pour continuer."
+  }
+}

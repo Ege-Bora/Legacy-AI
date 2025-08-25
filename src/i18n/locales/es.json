@@ -1,0 +1,123 @@
+{
+  "appName": "Life Legacy AI",
+  "tagline": "Transforma tus recuerdos en una hermosa historia de vida.",
+  "auth": {
+    "continueGoogle": "Continuar con Google",
+    "continueApple": "Continuar con Apple",
+    "signOut": "Cerrar sesión"
+  },
+  "home": {
+    "welcome": "Bienvenido de nuevo, {{name}}",
+    "quickActions": "Acciones Rápidas",
+    "startInterview": "Iniciar Entrevista",
+    "quickMemory": "Recuerdo Rápido",
+    "viewTimeline": "Ver Cronología",
+    "exportBook": "Exportar Libro",
+    "recentActivity": "Actividad Reciente",
+    "noRecentActivity": "Sin actividad reciente",
+    "getStarted": "Comienza creando tu primer recuerdo"
+  },
+  "onboarding": {
+    "title": "Bienvenido a Life Legacy AI",
+    "subtitle": "Transforma tus recuerdos en una hermosa historia de vida",
+    "recordVoice": "Graba recuerdos de voz",
+    "aiChapters": "Capítulos generados por IA",
+    "exportBeautiful": "Exporta como libros hermosos",
+    "getStarted": "Comenzar"
+  },
+  "timeline": {
+    "title": "Cronología",
+    "noMemories": "Aún no hay recuerdos",
+    "startRecording": "Comienza grabando tu primer recuerdo",
+    "pullToRefresh": "Desliza para actualizar",
+    "memoriesCount": "{{count}} recuerdos",
+    "chaptersGenerated": "{{count}} capítulos generados",
+    "wordsWritten": "{{count}} palabras escritas"
+  },
+  "book": {
+    "title": "Tu Libro",
+    "progress": "Progreso",
+    "exportOptions": "Opciones de Exportación",
+    "preview": "Vista Previa",
+    "generateBook": "Generar Libro",
+    "tips": "Consejos",
+    "completion": "{{percent}}% completado",
+    "chapters": "{{count}} capítulos",
+    "words": "{{count}} palabras",
+    "exportPDF": "Exportar como PDF",
+    "exportEPUB": "Exportar como EPUB",
+    "shareLink": "Compartir Enlace"
+  },
+  "quickCapture": {
+    "title": "Captura Rápida",
+    "voiceMode": "Voz",
+    "textMode": "Texto",
+    "recording": "Grabando...",
+    "tapToRecord": "Toca para grabar",
+    "tapToStop": "Toca para parar",
+    "writeMemory": "Escribe tu recuerdo...",
+    "saveMemory": "Guardar Recuerdo",
+    "tips": "Consejos",
+    "tipVoice": "Habla naturalmente sobre tu recuerdo",
+    "tipDetails": "Incluye detalles como cuándo, dónde y quién estaba allí",
+    "tipEmotions": "No olvides mencionar cómo te sentiste"
+  },
+  "editor": {
+    "title": "Editar Recuerdo",
+    "memoryTitle": "Título del Recuerdo",
+    "content": "Contenido",
+    "writeStory": "Escribe tu historia...",
+    "formatting": "Formato",
+    "media": "Medios",
+    "details": "Detalles",
+    "created": "Creado:",
+    "type": "Tipo:",
+    "wordCount": "Conteo de Palabras:",
+    "words": "palabras",
+    "unsavedChanges": "Tienes cambios sin guardar",
+    "saveChanges": "Guardar Cambios",
+    "saving": "Guardando...",
+    "regenerateWithAI": "Regenerar con IA",
+    "regenerating": "Regenerando..."
+  },
+  "settings": {
+    "title": "Configuración",
+    "language": "Idioma",
+    "systemDefault": "Predeterminado del sistema",
+    "account": "Cuenta",
+    "subscription": "Suscripción",
+    "privacy": "Privacidad y Datos",
+    "support": "Soporte",
+    "about": "Acerca de",
+    "privacyPolicy": "Política de Privacidad",
+    "terms": "Términos de Servicio",
+    "downloadData": "Descargar mis datos",
+    "deleteAccount": "Eliminar mi cuenta",
+    "version": "Versión {{version}}",
+    "languageUpdated": "Idioma actualizado"
+  },
+  "common": {
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "loading": "Cargando…",
+    "error": "Error",
+    "retry": "Reintentar",
+    "done": "Hecho",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "share": "Compartir",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "close": "Cerrar",
+    "ok": "OK",
+    "yes": "Sí",
+    "no": "No"
+  },
+  "errors": {
+    "generic": "Algo salió mal. Por favor, inténtalo de nuevo.",
+    "network": "Error de red. Verifica tu conexión.",
+    "notFound": "Contenido no encontrado.",
+    "unauthorized": "Por favor, inicia sesión para continuar."
+  }
+}
