@@ -45,13 +45,20 @@ export const useTimelineStore = create<TimelineState>()(
       loadTimeline: async (refresh = false) => {
         const state = get();
         
-        // Avoid duplicate requests
-        if (state.isLoading && !refresh) return;
+        // Prevent multiple concurrent loads
+        if (state.isLoading && !refresh) {
+          console.log('[Timeline] Already loading, skipping');
+          return;
+        }
         
         // Check if we need to refresh (5 minutes cache)
         const shouldRefresh = refresh || Date.now() - state.lastFetch > 5 * 60 * 1000;
-        if (!shouldRefresh && state.items.length > 0) return;
+        if (!shouldRefresh && state.items.length > 0) {
+          console.log('[Timeline] Using cached data, skipping load');
+          return;
+        }
 
+        console.log('[Timeline] Starting load, refresh:', refresh);
         set({ 
           isLoading: true, 
           isRefreshing: refresh,
@@ -63,10 +70,12 @@ export const useTimelineStore = create<TimelineState>()(
             limit: TIMELINE_CONFIG.pageSize
           };
 
+          console.log('[Timeline] Calling API with params:', params);
           const response = await api.getTimeline(params);
+          console.log('[Timeline] API response received:', response.items?.length, 'items');
           
           set({
-            items: response.items,
+            items: response.items || [],
             hasMore: Boolean(response.nextCursor),
             nextCursor: response.nextCursor,
             lastFetch: Date.now(),
@@ -78,6 +87,7 @@ export const useTimelineStore = create<TimelineState>()(
             error: error instanceof Error ? error.message : 'Failed to load timeline'
           });
         } finally {
+          console.log('[Timeline] Load completed');
           set({ 
             isLoading: false, 
             isRefreshing: false 
@@ -266,6 +276,12 @@ export const useTimelineStore = create<TimelineState>()(
       },
 
       refresh: async () => {
+        console.log('[Timeline] Refresh requested');
+        const state = get();
+        if (state.isRefreshing) {
+          console.log('[Timeline] Already refreshing, skipping');
+          return;
+        }
         await get().loadTimeline(true);
       },
 
@@ -293,7 +309,35 @@ export const useTimelineStore = create<TimelineState>()(
       partialize: (state) => ({
         items: state.items,
         lastFetch: state.lastFetch
-      })
+      }),
+      storage: {
+        getItem: async (name) => {
+          try {
+            const AsyncStorage = (await import('@react-native-async-storage/async-storage')).default;
+            const item = await AsyncStorage.getItem(name);
+            return item ? JSON.parse(item) : null;
+          } catch (error) {
+            console.warn('[Timeline] Storage getItem failed:', error);
+            return null;
+          }
+        },
+        setItem: async (name, value) => {
+          try {
+            const AsyncStorage = (await import('@react-native-async-storage/async-storage')).default;
+            await AsyncStorage.setItem(name, JSON.stringify(value));
+          } catch (error) {
+            console.warn('[Timeline] Storage setItem failed:', error);
+          }
+        },
+        removeItem: async (name) => {
+          try {
+            const AsyncStorage = (await import('@react-native-async-storage/async-storage')).default;
+            await AsyncStorage.removeItem(name);
+          } catch (error) {
+            console.warn('[Timeline] Storage removeItem failed:', error);
+          }
+        }
+      }
     }
   )
 );

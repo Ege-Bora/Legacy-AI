@@ -27,10 +27,12 @@ export const QuickMemoCard: React.FC<QuickMemoCardProps> = ({
     currentStatus, 
     recordingDuration, 
     recordingLevel,
+    pendingMemos,
     setRecordingState,
     addPendingMemo,
     showFirstTimeHint,
-    dismissFirstTimeHint
+    dismissFirstTimeHint,
+    retryFailedMemos
   } = useMemoStore();
   
   // Local state for recording
@@ -42,6 +44,8 @@ export const QuickMemoCard: React.FC<QuickMemoCardProps> = ({
   // Derived state
   const isRecording = currentStatus === 'recording';
   const isProcessing = ['uploading', 'transcribing'].includes(currentStatus);
+  const failedMemos = pendingMemos.filter(memo => memo.status === 'failed');
+  const hasFailedMemos = failedMemos.length > 0;
 
   // Check microphone permissions on mount
   useEffect(() => {
@@ -90,13 +94,47 @@ export const QuickMemoCard: React.FC<QuickMemoCardProps> = ({
       console.log('[QuickMemo] Starting recording...');
       setRecordingState('recording', 0, 0);
       
-      // Create and start recording
-      const { recording: newRecording } = await Audio.Recording.createAsync(
-        Audio.RecordingOptionsPresets.HIGH_QUALITY
-      );
+      // Create and start recording with optimized settings for Whisper
+      const recordingOptions = {
+        android: {
+          extension: '.m4a',
+          outputFormat: Audio.RECORDING_FORMAT_ANDROID_AMR_WB,
+          audioEncoder: Audio.RECORDING_OPTION_ANDROID_AUDIO_ENCODER_AMR_WB,
+          sampleRate: 16000, // Whisper prefers 16kHz
+          numberOfChannels: 1,
+          bitRate: 128000,
+        },
+        ios: {
+          extension: '.m4a',
+          outputFormat: Audio.RECORDING_FORMAT_IOS_AVAudioRecordingFormatMPEG4AAC,
+          audioQuality: Audio.RECORDING_OPTION_IOS_AUDIO_QUALITY_HIGH,
+          sampleRate: 16000, // Whisper prefers 16kHz  
+          numberOfChannels: 1,
+          bitRate: 128000,
+          linearPCMBitDepth: 16,
+          linearPCMIsBigEndian: false,
+          linearPCMIsFloat: false,
+        },
+        web: {
+          mimeType: 'audio/webm;codecs=opus',
+          bitsPerSecond: 128000,
+        },
+      };
       
-      setRecording(newRecording);
-      recordingRef.current = newRecording;
+      let recording: Audio.Recording;
+      try {
+        const { recording: newRecording } = await Audio.Recording.createAsync(recordingOptions);
+        recording = newRecording;
+      } catch (error) {
+        console.warn('[QuickMemo] Custom recording options failed, falling back to HIGH_QUALITY preset:', error);
+        const { recording: fallbackRecording } = await Audio.Recording.createAsync(
+          Audio.RecordingOptionsPresets.HIGH_QUALITY
+        );
+        recording = fallbackRecording;
+      }
+      
+      setRecording(recording);
+      recordingRef.current = recording;
       
       // Start duration tracking
       const startTime = Date.now();
@@ -323,6 +361,39 @@ export const QuickMemoCard: React.FC<QuickMemoCardProps> = ({
             </Text>
           )}
         </Card>
+
+        {/* Failed memos retry */}
+        {hasFailedMemos && (
+          <Card style={{ 
+            marginTop: theme.spacing.md,
+            backgroundColor: `${theme.colors.error}10`,
+            borderColor: theme.colors.error,
+            borderWidth: 1,
+          }}>
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+              <Ionicons name="warning" size={20} color={theme.colors.error} />
+              <View style={{ marginLeft: theme.spacing.sm, flex: 1 }}>
+                <Text style={{
+                  fontSize: theme.fontSizes.sm,
+                  fontWeight: theme.fontWeights.medium,
+                  color: theme.colors.text,
+                  marginBottom: theme.spacing.xs,
+                }}>
+                  {failedMemos.length} memo(s) failed to process
+                </Text>
+                <Button
+                  title="Retry Failed Memos"
+                  onPress={() => {
+                    retryFailedMemos();
+                    showToast('Retrying failed memos...');
+                  }}
+                  variant="secondary"
+                  size="sm"
+                />
+              </View>
+            </View>
+          </Card>
+        )}
       </View>
     </MicGate>
   );

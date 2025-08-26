@@ -19,7 +19,11 @@ import PaywallModal from '../components/PaywallModal';
 import { useSubscription } from '../state/subscription';
 
 export default function BookScreen() {
-  const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = useState({
+    totalChapters: 0,
+    completionPercentage: 0,
+    estimatedPages: 0
+  });
   const [isLoading, setIsLoading] = useState(true);
   const [isGenerating, setIsGenerating] = useState(false);
   const [showPaywall, setShowPaywall] = useState(false);
@@ -41,7 +45,11 @@ export default function BookScreen() {
       // Mock book progress for now
       console.log('[BookScreen] Loading book progress (mocked)');
       await new Promise(resolve => setTimeout(resolve, 500));
-      setProgress(65); // Mock 65% progress
+      setProgress({
+        totalChapters: 5,
+        completionPercentage: 65,
+        estimatedPages: 42
+      });
     } catch (error) {
       console.error('Failed to load book progress:', error);
     } finally {

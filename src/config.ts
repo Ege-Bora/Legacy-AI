@@ -61,6 +61,7 @@ export const TIMELINE_CONFIG = {
 export const DEV_CONFIG = {
   enableDebugPanel: Constants.expoConfig?.extra?.ENABLE_DEBUG_PANEL ?? __DEV__,
   mockServices: Constants.expoConfig?.extra?.MOCK_SERVICES ?? true, // Use mocks for Expo Go compatibility
+  useSupabase: Constants.expoConfig?.extra?.USE_SUPABASE ?? false, // Enable real Supabase
   logLevel: Constants.expoConfig?.extra?.LOG_LEVEL ?? (__DEV__ ? 'debug' : 'error'),
 } as const;
 
@@ -74,6 +75,7 @@ export const config = {
     analytics: ANALYTICS_CONFIG.enabled,
     crashReporting: SENTRY_CONFIG.enabled,
     mockApi: DEV_CONFIG.mockServices,
+    useSupabase: DEV_CONFIG.useSupabase,
     exportEpub: FEATURE_FLAGS.export_epub,
     exportDoc: FEATURE_FLAGS.export_doc,
     exportPdf: FEATURE_FLAGS.export_pdf,

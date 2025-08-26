@@ -10,6 +10,7 @@ import { config } from '../config';
 import { analytics, crashReporting } from '../services/analytics';
 import { useMemoStore } from '../state/memos';
 import { useTimelineStore } from '../state/timeline';
+import { testAudioPipeline, formatTestResults } from '../utils/testAudioPipeline';
 import * as FileSystem from 'expo-file-system';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -18,6 +19,7 @@ export default function DeveloperScreen() {
   const { t } = useI18n();
   const [debugMode, setDebugMode] = useState(false);
   const [mockApiEnabled, setMockApiEnabled] = useState(config.features.mockApi);
+  const [supabaseEnabled, setSupabaseEnabled] = useState(config.features.useSupabase);
   
   const memoStore = useMemoStore();
   const timelineStore = useTimelineStore();
@@ -68,6 +70,37 @@ export default function DeveloperScreen() {
                 screen: 'DeveloperScreen',
               });
               Alert.alert('Test Error Sent', 'Check console for crash report');
+            }
+          }
+        }
+      ]
+    );
+  };
+
+  const handleTestAudioPipeline = async () => {
+    Alert.alert(
+      'Test Audio Pipeline', 
+      'This will test the complete audio recording and processing flow.',
+      [
+        { text: 'Cancel', style: 'cancel' },
+        {
+          text: 'Run Test',
+          onPress: async () => {
+            try {
+              const results = await testAudioPipeline();
+              const formattedResults = formatTestResults(results);
+              
+              Alert.alert(
+                'Audio Pipeline Test Results',
+                formattedResults,
+                [{ text: 'OK' }]
+              );
+              console.log('[Developer] Audio Pipeline Test Results:', results);
+            } catch (error) {
+              Alert.alert(
+                'Test Failed',
+                `Audio pipeline test failed: ${error instanceof Error ? error.message : 'Unknown error'}`
+              );
             }
           }
         }
@@ -145,6 +178,26 @@ export default function DeveloperScreen() {
             />
           ),
         },
+        {
+          icon: 'server' as keyof typeof Ionicons.glyphMap,
+          title: 'Supabase Integration',
+          subtitle: supabaseEnabled ? 'Production Database' : 'Mock Database',
+          rightElement: (
+            <Switch
+              value={supabaseEnabled}
+              onValueChange={(value) => {
+                setSupabaseEnabled(value);
+                Alert.alert(
+                  'Restart Required',
+                  'Please restart the app for Supabase changes to take effect.',
+                  [{ text: 'OK' }]
+                );
+              }}
+              trackColor={{ false: theme.colors.border, true: theme.colors.success }}
+              thumbColor={theme.colors.surface}
+            />
+          ),
+        },
       ],
     },
     {
@@ -174,6 +227,12 @@ export default function DeveloperScreen() {
     {
       title: 'Testing',
       items: [
+        {
+          icon: 'volume-high' as keyof typeof Ionicons.glyphMap,
+          title: 'Test Audio Pipeline',
+          subtitle: 'Test recording, upload, transcription flow',
+          onPress: handleTestAudioPipeline,
+        },
         {
           icon: 'analytics' as keyof typeof Ionicons.glyphMap,
           title: 'Test Analytics',

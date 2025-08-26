@@ -178,16 +178,24 @@ export const useMemoStore = create<MemoState>()(
             timelineId: timelineResult.id,
           };
 
+          // Update status to saved before removing
+          updateMemoStatus(memo.id, 'saved');
+          
           // Add to saved memos and remove from pending
           addSavedMemo(savedMemo);
           removePendingMemo(memo.id);
-
-          // Update status to saved
-          updateMemoStatus(memo.id, 'saved');
+          
+          console.log('[MemoStore] Memo processed successfully:', memo.id);
+          
+          // Reset recording state to idle
+          set({ currentStatus: 'idle', recordingDuration: 0, recordingLevel: 0 });
 
         } catch (error) {
           console.error('Failed to process memo:', error);
           updateMemoStatus(memo.id, 'failed', error instanceof Error ? error.message : 'Unknown error');
+          
+          // Reset recording state to idle even on failure
+          set({ currentStatus: 'idle', recordingDuration: 0, recordingLevel: 0 });
         }
       },
     }),
@@ -195,34 +203,34 @@ export const useMemoStore = create<MemoState>()(
       name: 'memo-storage',
       storage: {
         getItem: async (name) => {
-          const value = await AsyncStorage.getItem(name);
-          return value ? JSON.parse(value) : null;
+          try {
+            const value = await AsyncStorage.getItem(name);
+            return value ? JSON.parse(value) : null;
+          } catch (error) {
+            console.warn('[MemoStore] Storage getItem failed:', error);
+            return null;
+          }
         },
         setItem: async (name, value) => {
-          await AsyncStorage.setItem(name, JSON.stringify(value));
+          try {
+            await AsyncStorage.setItem(name, JSON.stringify(value));
+          } catch (error) {
+            console.warn('[MemoStore] Storage setItem failed:', error);
+          }
         },
         removeItem: async (name) => {
-          await AsyncStorage.removeItem(name);
+          try {
+            await AsyncStorage.removeItem(name);
+          } catch (error) {
+            console.warn('[MemoStore] Storage removeItem failed:', error);
+          }
         },
       },
-      // Only persist certain fields
+      // Only persist certain fields (no functions!)
       partialize: (state) => ({
         savedMemos: state.savedMemos,
         showFirstTimeHint: state.showFirstTimeHint,
         pendingMemos: state.pendingMemos.filter(memo => memo.status === 'failed'), // Only persist failed memos for retry
-        currentStatus: 'idle' as const,
-        recordingDuration: 0,
-        recordingLevel: 0,
-        isOnline: true,
-        setRecordingState: state.setRecordingState,
-        addPendingMemo: state.addPendingMemo,
-        updateMemoStatus: state.updateMemoStatus,
-        addSavedMemo: state.addSavedMemo,
-        removePendingMemo: state.removePendingMemo,
-        retryFailedMemos: state.retryFailedMemos,
-        setOnlineStatus: state.setOnlineStatus,
-        dismissFirstTimeHint: state.dismissFirstTimeHint,
-        processPendingMemo: state.processPendingMemo,
       }),
     }
   )

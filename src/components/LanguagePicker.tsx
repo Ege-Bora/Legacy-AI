@@ -163,8 +163,8 @@ export const LanguagePicker: React.FC<LanguagePickerProps> = ({ compact = false 
           lineHeight: theme.fontSizes.sm * 1.4,
         }}>
           {currentSelection === 'system' 
-            ? `${t('settings.systemDefault')} (${language.toUpperCase()})`
-            : `${t('settings.language')}: ${LANGUAGE_OPTIONS.find(opt => opt.code === currentSelection)?.nativeLabel}`
+            ? `${t('settings.systemDefault')} ${language ? `(${language.toUpperCase()})` : ''}`
+            : `${t('settings.language')}: ${LANGUAGE_OPTIONS.find(opt => opt.code === currentSelection)?.nativeLabel || 'Unknown'}`
           }
         </Text>
         

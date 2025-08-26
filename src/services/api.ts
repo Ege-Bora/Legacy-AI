@@ -56,10 +56,10 @@ export class APIService {
   private async mockApiCall<T>(data: T, delay: number = this.mockDelay): Promise<T> {
     await new Promise(resolve => setTimeout(resolve, delay));
     
-    // Simulate occasional failures in development
-    if (DEV_CONFIG.mockServices && Math.random() < 0.1) {
-      throw new Error('Mock API failure for testing');
-    }
+    // Remove random test failures that were causing issues
+    // if (DEV_CONFIG.mockServices && Math.random() < 0.1) {
+    //   throw new Error('Mock API failure for testing');
+    // }
     
     return data;
   }
@@ -294,16 +294,7 @@ export const legacyApi = {
     };
   },
 
-  // Get Timeline (legacy support)
-  async getTimeline() {
-    console.log('[Mock API] Getting timeline (legacy)...');
-    return api.getTimeline();
-  },
-
-  // Add getTimelineItems to legacy API
-  async getTimelineItems() {
-    return api.getTimeline();
-  }
+  // Note: getTimeline and getTimelineItems are provided by the main API class
 };
 
 // Merge legacy methods into main api export

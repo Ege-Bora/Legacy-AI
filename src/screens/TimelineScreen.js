@@ -32,12 +32,21 @@ export default function TimelineScreen({ navigation }) {
   } = useTimelineStore();
 
   useEffect(() => {
-    loadTimeline();
+    // Load timeline on mount if we don't have items and we're not already loading
+    if (timelineItems.length === 0 && !isLoading) {
+      console.log('[TimelineScreen] Initial load');
+      loadTimeline();
+    }
   }, []); // Load once on mount
 
   const onRefresh = async () => {
+    if (isRefreshing) return; // Prevent multiple concurrent refreshes
     console.log('[TimelineScreen] Refreshing timeline...');
-    await refresh();
+    try {
+      await refresh();
+    } catch (error) {
+      console.error('[TimelineScreen] Refresh failed:', error);
+    }
   };
 
   // Combine timeline items with saved memos
@@ -128,7 +137,7 @@ export default function TimelineScreen({ navigation }) {
       </View>
 
       {/* Timeline Content */}
-      {!Array.isArray(timelineItems) || timelineItems.length === 0 ? (
+      {!Array.isArray(allItems) || allItems.length === 0 ? (
         <EmptyState
           icon="time-outline"
           title={t('timeline.emptyTitle')}
@@ -138,7 +147,7 @@ export default function TimelineScreen({ navigation }) {
         />
       ) : (
         <>
-          {timelineItems.map((item, index) => (
+          {allItems.map((item, index) => (
             <ChapterCard
               key={item?.id || `item-${index}`}
               item={item}
